@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 let title;
 let screens;
@@ -11,32 +11,40 @@ let fullPrice;
 let servicePercentPrice;
 const rollback = 13 / 100;
 
-
 const isNumber = function (num) {
-	console.log(num);
-	return !isNaN(parseFloat(num)) && isFinite(num) && num;
-}
+  return !isNaN(parseFloat(num)) && isFinite(num);
+};
 
 const asking = function () {
-	title = prompt("Как называется ваш проект?", "простое название");
-	screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
-	screenPrice = +prompt("Сколько будет стоить данная работа?");
+  title = prompt("Как называется ваш проект?", "простое название");
+  screens = prompt(
+    "Какие типы экранов нужно разработать?",
+    "Простые, Сложные, Интерактивные"
+  );
+  screenPrice = +prompt("Сколько будет стоить данная работа?");
 
+<<<<<<< HEAD
 	do {
 		if (!isNumber(screenPrice)) {
 			screenPrice = +prompt("Сколько будет стоить данная работа?");
 		}
 
 	} while (!isNumber(screenPrice));
+=======
+  while (isNumber(screenPrice) && screenPrice === "") {
+    screenPrice = +prompt("Сколько будет стоить данная работа?");
+  }
 
-	// while (!isNumber(screenPrice)) {
-	// 	screenPrice = +prompt("Сколько будет стоить данная работа?");
-	// };
+  // while (!isNumber(screenPrice)) {
+  // 	screenPrice = +prompt("Сколько будет стоить данная работа?");
+  // };
+>>>>>>> 5515347 (* игп ашч)
 
-	adaptive = confirm("Нужен ли адаптив?");
+  adaptive = confirm("Нужен ли адаптив?");
 };
 
 const getAllServicePrices = function () {
+<<<<<<< HEAD
 	let sum = 0;
 	for (let i = 0; i < 2; i++) {
 
@@ -54,37 +62,47 @@ const getAllServicePrices = function () {
 		sum += sum2;
 	}
 	return sum;
+=======
+  let sum = 0;
+  for (let i = 0; i < 2; i++) {
+    if (i === 0) {
+      service1 = prompt("Какой дополнительный тип услуги нужен?");
+    } else if (i === 1) {
+      service2 = prompt("Какой дополнительный тип услуги нужен?");
+    }
+    sum += parseInt(prompt("Сколько это будет стоить?"));
+  }
+  return sum;
+>>>>>>> 5515347 (* игп ашч)
 };
 
 function getFullPrice(int1, int2) {
-	return int1 + int2;
+  return int1 + int2;
 }
 
 function getTitle(title) {
-	let titleNew = title.trim();
-	return titleNew[0].toUpperCase() + titleNew.slice(1).toLowerCase();
+  let titleNew = title.trim();
+  return titleNew[0].toUpperCase() + titleNew.slice(1).toLowerCase();
 }
 
 function getServicePercentPrices() {
-	return Math.ceil(fullPrice - (fullPrice * rollback));
+  return Math.ceil(fullPrice - fullPrice * rollback);
 }
 
-
 const showTypeOf = function (variable) {
-	console.log(variable, typeof variable);
+  console.log(variable, typeof variable);
 };
 
-
 const getRollbakMessage = function (price) {
-	if (price >= 30000) {
-		return "Даём скидку в 10%";
-	} else if (price >= 15000 && price < 30000) {
-		return "Даём скидку в 5%";
-	} else if (price >= 0 && price < 15000) {
-		return "Скидка не предусмотрена";
-	} else {
-		return "Что то пошло не так";
-	}
+  if (price >= 30000) {
+    return "Даём скидку в 10%";
+  } else if (price >= 15000 && price < 30000) {
+    return "Даём скидку в 5%";
+  } else if (price >= 0 && price < 15000) {
+    return "Скидка не предусмотрена";
+  } else {
+    return "Что то пошло не так";
+  }
 };
 
 asking();
@@ -103,13 +121,5 @@ console.log(`Общая сумма составляет ${fullPrice} рубле�
 console.log(`Общая сумма составляет ${fullPrice} рублей.`);
 console.log(`После вычета отката посреднику ${getServicePercentPrices()}`);
 
-
-
-
-
-
-
-
-
 //function exp1(){} - function declaration - можно вызывать как перед объявлением так и после
-//const exp1 = function(){} - function expression - можно вызывать только после объявления 
+//const exp1 = function(){} - function expression - можно вызывать только после объявления
